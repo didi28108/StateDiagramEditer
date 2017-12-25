@@ -6,7 +6,7 @@ import javafx.scene.shape.Shape;
 
 public class MCircle extends Circle implements BaseElement {
     public MCircle(){
-        super(55,55,50.0f, Color.TRANSPARENT);
+        super(50,50,50.0f, Color.TRANSPARENT);
         create();
     }
     public void create() {

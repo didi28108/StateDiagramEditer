@@ -8,11 +8,12 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 public class ColorTransition extends ColorModle {
-    public ColorTransition(Model transition, Paint paintmain,Paint paintmain2, Paint painttext) {
+    Transition transition;
+    public ColorTransition(Model model, Paint paintmain,Paint paintmain2, Paint painttext) {
         this.painttext = painttext;
         this.paintmain = paintmain;
         this.paintmain2 = paintmain2;
-        this.transition = (Transition) transition;
+        this.transition = (Transition)model;
         paint();
     }
     protected void paint() {

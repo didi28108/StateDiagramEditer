@@ -6,6 +6,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 public class ColorState extends ColorModle{
+    State state;
     public ColorState(Model state, Paint paintmain, Paint painttext) {
         this.state = (State) state;
         this.paintmain = paintmain;

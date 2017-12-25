@@ -52,6 +52,7 @@ public class GuiView {
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
+
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -93,10 +94,7 @@ public class GuiView {
     public void transition_press(ActionEvent event) {
         controller.transition_press(anchorPane,main_colorPicker.getValue(),text_colorPicker.getValue());
     }
-    public void main_pickerpress(ActionEvent event){
 
-    }
-    public void text_pickerpress(ActionEvent event){
 
-    }
+
 }

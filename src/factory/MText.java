@@ -13,8 +13,8 @@ public class MText extends Text implements BaseElement {
     public void create() {
         setFont(Font.font(null, FontWeight.BOLD, 18));
         if (getText().equals("state")) {
-           setTranslateX(35);
-           setTranslateY(58);
+           setTranslateX(30);
+           setTranslateY(53);
         }
     }
     @Override

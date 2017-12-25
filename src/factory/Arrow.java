@@ -69,7 +69,6 @@ public class Arrow extends Polygon implements BaseElement {
                         Math.pow(t, 3)*c.getEndY());
         return p;
     }
-
     /**
      * Evaluate the tangent of the cubic curve at a parameter 0<=t<=1, returns a Point2D
      * @param c the CubicCurve
@@ -87,8 +86,6 @@ public class Arrow extends Polygon implements BaseElement {
                         3*Math.pow(t, 2)*c.getEndY());
         return p;
     }
-
-
     @Override
     public Shape getshape() {
         return this;

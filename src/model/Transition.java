@@ -47,10 +47,12 @@ public class Transition extends Model {
     public Group getGroup() {
         return group1;
     }
+
     @Override
     public Group getGroup2() {
         return group2;
     }
+
     public MText getText() {
         return text;
     }

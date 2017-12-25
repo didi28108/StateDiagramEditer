@@ -19,7 +19,6 @@ public class GuiController {
     Model select_model=null,pre_model;
     GuiView guiView;
     Modelsupervier modelsupervier;
-    ModelListener modelListener;
     public GuiController() {
         modelsupervier= new Modelsupervier();
         bridgeCommand = new BridgeCommand();
@@ -77,7 +76,7 @@ public class GuiController {
         if (!(main.equals(Color.BLACK)&&text.equals(Color.BLACK))){
             model = new ColorState(model,main,text);
         }
-        modelListener = new ModelListener(this);
+        ModelListener modelListener = new ModelListener(this);
         modelListener.setlistener(model);
         stateDiagram.addModel(model);
         bridgeCommand.addstate(anchr, model);
@@ -90,7 +89,7 @@ public class GuiController {
         if (!main.equals(Color.BLACK)){
             model =  new ColorTransition(model,main,main,text);
         }
-        modelListener = new ModelListener(this);
+        ModelListener modelListener = new ModelListener(this);
         modelListener.setlistener(model);
         stateDiagram.addModel(model);
         bridgeCommand.addstransition(anchr, model);
