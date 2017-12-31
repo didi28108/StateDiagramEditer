@@ -1,10 +1,7 @@
 package model;
 
 import builder.Modelsupervier;
-import factory.Anchor;
-import factory.Arrow;
-import factory.MLine;
-import factory.MText;
+import factory.*;
 import javafx.scene.Group;
 
 public class Transition extends Model {
@@ -42,20 +39,21 @@ public class Transition extends Model {
         model.getArrow().update();
         return model;
     }
-
     @Override
     public Group getGroup() {
         return group1;
     }
-
     @Override
     public Group getGroup2() {
         return group2;
     }
+    public MText getText() {        return text;    }
 
-    public MText getText() {
-        return text;
+    @Override
+    public MCircle getCircle() {
+        return null;
     }
+
     public MLine getLine() {
         return line;
     }

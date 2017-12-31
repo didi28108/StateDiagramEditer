@@ -2,59 +2,64 @@ package model;
 
 import builder.Modelsupervier;
 import builder.TransitionBuilder;
+import factory.*;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 public class ColorTransition extends ColorModle {
-    Transition transition;
-    public ColorTransition(Model model, Paint paintmain,Paint paintmain2, Paint painttext) {
-        this.painttext = painttext;
-        this.paintmain = paintmain;
-        this.paintmain2 = paintmain2;
-        this.transition = (Transition)model;
+    public ColorTransition(Model model, Paint paintmain, Paint painttext) {
+        super(model,paintmain,painttext);
         paint();
     }
     protected void paint() {
-        transition.getLine().setStroke(paintmain);
-        transition.getArrow().setFill(paintmain2);
-        transition.getText().setFill(painttext);
+        model.getLine().setStroke(paintmain);
+        model.getArrow().setFill(paintmain);
+        model.getText().setFill(painttext);
     }
     @Override
-    protected Model clone() {
-        Modelsupervier modelsupervier = new Modelsupervier();
-        modelsupervier.transition_contuct();
-        Transition transition = modelsupervier.getTransition();
-        ColorTransition model = new ColorTransition(transition,paintmain,paintmain2,painttext);
-        model.setOrgSceneX(orgSceneX);
-        model.setOrgSceneY(orgSceneY);
-        model.setOrgTranslateX(orgTranslateX);
-        model.setOrgTranslateY(orgTranslateY);
-        model.getGroup().setTranslateX(this.getGroup().getTranslateX());
-        model.getGroup().setTranslateY(this.getGroup().getTranslateY());
-        model.getText().setText(getText().getText());
-        model.getGroup2().setTranslateX(this.transition.getGroup2().getTranslateX());
-        model.getGroup2().setTranslateY(this.transition.getGroup2().getTranslateY());
-        transition.getStart().setCenterX(this.transition.getStart().getCenterX());
-        transition.getStart().setCenterY(this.transition.getStart().getCenterY());
-        transition.getEnd().setCenterX(this.transition.getEnd().getCenterX());
-        transition.getEnd().setCenterY(this.transition.getEnd().getCenterY());
-        transition.getArrow().update();
-        return model;
+    public Model clone() {
+        ColorTransition model1 = new ColorTransition( model.clone(),paintmain,painttext);
+        return model1;
     }
     @Override
     public Group getGroup() {
-        return transition.getGroup();
+        return model.getGroup();
     }
 
     @Override
     public Group getGroup2() {
-        return transition.getGroup2();
+        return model.getGroup2();
     }
 
     @Override
-    public Text getText() {
-        return transition.getText();
+    public MText getText() {
+        return model.getText();
+    }
+
+    @Override
+    public MCircle getCircle() {
+        return null;
+    }
+
+    @Override
+    public MLine getLine() {
+        return model.getLine();
+    }
+
+    @Override
+    public Anchor getStart() {
+        return model.getStart();
+    }
+
+    @Override
+    public Anchor getEnd() {
+        return model.getEnd();
+    }
+
+    @Override
+    public Arrow getArrow() {
+        return model.getArrow();
     }
 }

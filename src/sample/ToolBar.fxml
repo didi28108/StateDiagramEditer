@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 
-
-<ToolBar prefHeight="40.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<ToolBar prefHeight="40.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <Button fx:id="btn_new" mnemonicParsing="false" onAction="#new_press" text="NEW" />
       <Button fx:id="btn_load" disable="true" mnemonicParsing="false" text="LOAD" />
@@ -23,11 +22,11 @@
       <Pane prefHeight="40.0" prefWidth="40.0" />
       <Button fx:id="btn_state" mnemonicParsing="false" onAction="#state_press" text="STATE" />
       <Button fx:id="btn_transition" mnemonicParsing="false" onAction="#transition_press" text="TRANSITION" />
-      <ColorPicker fx:id="main_colorPicker">
+      <ColorPicker fx:id="main_colorPicker" onAction="#colorPicker_click">
          <value>
             <Color blue="0.0" green="0.0" red="0.0" /> </value>
       </ColorPicker>
-      <ColorPicker fx:id="text_colorPicker">
+      <ColorPicker fx:id="text_colorPicker" onAction="#colorPicker_click">
          <value>
             <Color blue="0.0" green="0.0" red="0.0" /> </value>
       </ColorPicker>

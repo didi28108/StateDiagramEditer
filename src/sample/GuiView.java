@@ -94,7 +94,7 @@ public class GuiView {
     public void transition_press(ActionEvent event) {
         controller.transition_press(anchorPane,main_colorPicker.getValue(),text_colorPicker.getValue());
     }
-
-
-
+    public void colorPicker_click(ActionEvent event){
+        controller.mainChageColor(anchorPane,main_colorPicker.getValue(),text_colorPicker.getValue());
+    }
 }

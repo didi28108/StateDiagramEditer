@@ -4,12 +4,14 @@ import bridge.BridgeCommand;
 import builder.Modelsupervier;
 import javafx.scene.effect.Glow;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import memento.Originator;
 import model.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import java.util.Optional;
 
 public class GuiController {
@@ -74,7 +76,7 @@ public class GuiController {
         modelsupervier.state_contruct();
         Model model = modelsupervier.getStateModel();
         if (!(main.equals(Color.BLACK)&&text.equals(Color.BLACK))){
-            model = new ColorState(model,main,text);
+            model = new ColorState((State)model,main,text);
         }
         ModelListener modelListener = new ModelListener(this);
         modelListener.setlistener(model);
@@ -87,7 +89,7 @@ public class GuiController {
         modelsupervier.transition_contuct();
         Model model = modelsupervier.getTransition();
         if (!main.equals(Color.BLACK)){
-            model =  new ColorTransition(model,main,main,text);
+            model =  new ColorTransition((Transition)model,main,text);
         }
         ModelListener modelListener = new ModelListener(this);
         modelListener.setlistener(model);
@@ -111,5 +113,19 @@ public class GuiController {
     public void selectGlow(){
         if(pre_model!=null)pre_model.getGroup().setEffect(new Glow(0));
         if(select_model!=null)select_model.getGroup().setEffect(new Glow(0.8));
+    }
+    public void mainChageColor(AnchorPane anchr,Color main,Color text){
+        //System.out.println(select_model.getClass().toString());
+        if (select_model !=null){
+            statediagram_save(anchr);;
+            stateDiagram.deleteModel(select_model);
+        if (select_model.getClass().toString().equals("class model.State")||select_model.getClass().toString().equals("class model.ColorState")){
+            this.select_model = new ColorState(select_model,main,text);
+        }else if (select_model.getClass().toString().equals("class model.Transition")||select_model.getClass().toString().equals("class model.ColorTransition")) {
+            this.select_model = new ColorTransition(select_model, main, text);
+        }
+        stateDiagram.addModel(select_model);
+        }
+
     }
 }

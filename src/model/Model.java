@@ -1,6 +1,6 @@
 package model;
 
-import factory.Anchor;
+import factory.*;
 import javafx.scene.effect.Glow;
 import javafx.scene.shape.Circle;
 import sample.GuiController;
@@ -15,10 +15,15 @@ import java.io.Serializable;
 public abstract class Model{
     double orgSceneX, orgSceneY;
     double orgTranslateX, orgTranslateY;
-    protected abstract Model clone();
+    public abstract Model clone();
     public abstract Group getGroup();
     public abstract Group getGroup2();
-    public abstract Text getText();
+    public abstract MText getText();
+    public abstract MCircle getCircle();
+    public abstract MLine getLine();
+    public abstract Anchor getStart();
+    public abstract Anchor getEnd();
+    public abstract Arrow getArrow();
     public void setOrgSceneX(double orgSceneX) {
         this.orgSceneX = orgSceneX;
     }
@@ -43,4 +48,5 @@ public abstract class Model{
     public double getOrgSceneX() {
         return orgSceneX;
     }
+
 }
