@@ -12,7 +12,6 @@ import model.Model;
 public interface ModelBuilder {
     void createText();
     void createMain();
-    void addelse();
     void combined();
     Model getModle();
 }

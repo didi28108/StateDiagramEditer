@@ -1,8 +1,8 @@
 package model;
 
 import builder.Modelsupervier;
-import factory.MCircle;
-import factory.MText;
+import builder.StateBuilder;
+import factory.*;
 import javafx.scene.Group;
 
 public class State extends Model {
@@ -15,9 +15,9 @@ public class State extends Model {
         this.group = group;
     }
     public Model clone(){
-        Modelsupervier modelsupervier = new Modelsupervier();
-        modelsupervier.state_contruct();
-        State model = modelsupervier.getStateModel();
+        Modelsupervier modelsupervier = new Modelsupervier(new StateBuilder());
+        modelsupervier.contruct();
+        State model = (State) modelsupervier.getModel();
         model.setOrgSceneX(orgSceneX);
         model.setOrgSceneY(orgSceneY);
         model.setOrgTranslateX(orgTranslateX);
@@ -25,13 +25,32 @@ public class State extends Model {
         model.getGroup().setTranslateX(getGroup().getTranslateX());
         model.getGroup().setTranslateY(getGroup().getTranslateY());
         model.getText().setText(getText().getText());
-        /*System.out.println(group+" "+group.getTranslateX()+" "+group.getTranslateY()+" "+text.getText()+" -> " +
-        model.getGroup()+""+model.getGroup().getTranslateX()+" "+model.getGroup().getTranslateY()+" "+model.getText().getText());*/
         return model;
     }
     public MCircle getCircle() {
         return circle;
     }
+
+    @Override
+    public MLine getLine() {
+        return null;
+    }
+
+    @Override
+    public Anchor getStart() {
+        return null;
+    }
+
+    @Override
+    public Anchor getEnd() {
+        return null;
+    }
+
+    @Override
+    public Arrow getArrow() {
+        return null;
+    }
+
     public MText getText() {
         return text;
     }

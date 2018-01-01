@@ -26,14 +26,9 @@ public class TransitionBuilder implements ModelBuilder {
     public void createMain() {
         line = baseFactory.getelement("Line");
         arrow = baseFactory.getelement("Arrow",(Text)text.getshape(),(Line)line.getshape());
-    }
-
-    @Override
-    public void addelse() {
         start = baseFactory.getelement("StartAnchor",(Line)line.getshape(),(Arrow)arrow.getshape());
         end = baseFactory.getelement("EndAnchor",(Line)line.getshape(),(Arrow)arrow.getshape());
     }
-
     @Override
     public void combined() {
         group.getChildren().addAll(text.getshape(),line.getshape(),arrow.getshape());

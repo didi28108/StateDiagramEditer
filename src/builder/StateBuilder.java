@@ -25,9 +25,6 @@ public class StateBuilder implements ModelBuilder {
         //circle = new MCircle().getCircle();
     }
     @Override
-    public void addelse() {    }
-
-    @Override
     public void combined() {
         group.getChildren().addAll(circle.getshape(),text.getshape());
         state = new State((MText)text,(MCircle)circle,group);
