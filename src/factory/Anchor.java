@@ -25,7 +25,12 @@ public class Anchor extends Circle implements BaseElement {
             y = getCenterY() - mouseEvent.getY();
             getScene().setCursor(Cursor.H_RESIZE);
         });
-        setOnMouseReleased(mouseEvent -> getScene().setCursor(Cursor.H_RESIZE));
+        setOnMouseReleased(mouseEvent -> {
+            getScene().setCursor(Cursor.H_RESIZE);
+            setFill(Color.TRANSPARENT.deriveColor(1, 1, 1, 0.5));
+            setStroke(Color.TRANSPARENT);
+            getScene().setCursor(Cursor.DEFAULT);
+        });
         setOnMouseDragged(mouseEvent -> {
             newX = mouseEvent.getX() + x;
                 setCenterX(newX);
@@ -36,18 +41,22 @@ public class Anchor extends Circle implements BaseElement {
         setOnMouseEntered(mouseEvent -> {
             if (!mouseEvent.isPrimaryButtonDown()) {
                 getScene().setCursor(Cursor.H_RESIZE);
+                setFill(Color.LIGHTBLUE.deriveColor(1, 1, 1, 0.5));
+                setStroke(Color.LIGHTBLUE);
             }
         });
         setOnMouseExited(mouseEvent -> {
             if (!mouseEvent.isPrimaryButtonDown()) {
                 getScene().setCursor(Cursor.DEFAULT);
+                setFill(Color.TRANSPARENT.deriveColor(1, 1, 1, 0.5));
+                setStroke(Color.TRANSPARENT);
             }
         });
     }
     @Override
     public void create() {
-        setFill(Color.LIGHTBLUE.deriveColor(1, 1, 1, 0.5));
-        setStroke(Color.LIGHTBLUE);
+        setFill(Color.TRANSPARENT.deriveColor(1, 1, 1, 0.5));
+        setStroke(Color.TRANSPARENT);
         setStrokeWidth(2);
         setStrokeType(StrokeType.OUTSIDE);
         dx.bind(centerXProperty());

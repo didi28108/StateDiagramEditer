@@ -1,5 +1,7 @@
 package factory;
 
+import javafx.scene.Cursor;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;

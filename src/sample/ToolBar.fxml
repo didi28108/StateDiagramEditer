@@ -17,7 +17,6 @@
       <Pane prefHeight="40.0" prefWidth="40.0" />
       <Button fx:id="btn_edit" mnemonicParsing="false" onAction="#edit_press" text="EDIT" />
       <TextField fx:id="textField" />
-      <Pane prefHeight="40.0" prefWidth="40.0" />
       <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#delete_press" text="DELETE" />
       <Pane prefHeight="40.0" prefWidth="40.0" />
       <Button fx:id="btn_state" mnemonicParsing="false" onAction="#state_press" text="STATE" />
