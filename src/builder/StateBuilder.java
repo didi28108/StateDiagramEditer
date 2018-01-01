@@ -12,10 +12,10 @@ public class StateBuilder implements ModelBuilder {
     State state;
     public StateBuilder(){
         baseFactory = new BaseFactory();
-        group = new Group();
     }
     @Override
     public void createText() {
+        group = new Group();
         text = baseFactory.getelement("SText");
         //text =  new MText("state").getText();
     }

@@ -14,11 +14,12 @@ public class TransitionBuilder implements ModelBuilder {
     Transition transition;
     public TransitionBuilder(){
         baseFactory = new BaseFactory();
-        group = new Group();
-        group2 = new Group();
+
     }
     @Override
     public void createText() {
+        group = new Group();
+        group2 = new Group();
         text = baseFactory.getelement("Text");
     }
 
